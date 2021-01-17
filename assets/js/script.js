@@ -1,6 +1,7 @@
-import $ from "jquery";
+require('bootstrap');
 
 $(document).ready(function() {
+  
   function createEl(htmlString, attrs, ...children) {
     if (typeof htmlString !== "string") {
       throw Error("Argument 'htmlString' is required and must be a string");
