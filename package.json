@@ -21,12 +21,14 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "dependencies": "0.0.1",
-    "expose-loader": "^1.0.3",
+    "image-webpack-loader": "^7.0.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "file-loader": "^6.2.0",
     "webpack": "^5.15.0",
+    "webpack-bundle-analyzer": "^4.3.0",
     "webpack-cli": "^4.3.1"
   }
 }
