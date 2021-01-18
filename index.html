@@ -167,4 +167,16 @@
       <div class="footer-copyright text-center py-3 text-white">© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.</div>        
     </footer>
 </body>
+
+<script>
+  (function() {
+    // first checks to see whether serviceWorker exists on global navigator object, which contains info about which browser the visitor is using (and data re whether browser has support for a Service Worker)
+    if ('serviceWorker' in navigator) {
+      // important to use a relative path; absolute path would break configuration on deploy
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log("Service Worker registered successfully."))
+        .catch(error => console.log('Service Worker registration failed:', error));
+    }
+  })();
+</script>
 </html>
