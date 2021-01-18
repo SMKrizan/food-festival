@@ -2,6 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 
 module.exports = {
@@ -38,6 +39,11 @@ module.exports = {
                         loader: 'image-webpack-loader'
                     }
                 ]
+            },
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                use: ['source-map-loader'],
             }
         ]
     },
@@ -50,8 +56,27 @@ module.exports = {
         // outputs an HTML file 'report.html' that will generate in the dist folder; if set to 'disable' rather than 'static', will stop the reporting and openin of this report in the browser
         new BundleAnalyzerPlugin({
             analyzerMode: "static",
+        }),
+        // invokes constructor function to instantiate manifest, providing an object as argument
+        new WebpackPwaManifest({
+            name: "Food Event",
+            short_name: "Foodies",
+            description: "An app that allows you to view upcoming food events.",
+            // specifies homepage for pwa relative to location of manifest file
+            start_url: "../index.html",
+            background_color: "#01579b",
+            theme_color: "#ffffff",
+            // the following two specifications are specific to the webpack manifest plugin
+            fingerprints: false,
+            inject: false,
+            icons: [{
+                src: path.resolve("assets/img/icons/icon-512x512.png"),
+                sizes: [96, 128, 192, 256, 384, 512],
+                destination: path.join("assets", "icons")
+            }]
         })
     ],
+    devtool: 'eval-cheap-source-map',
     mode: 'development'
 };
 
