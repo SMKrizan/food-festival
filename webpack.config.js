@@ -39,11 +39,6 @@ module.exports = {
                         loader: 'image-webpack-loader'
                     }
                 ]
-            },
-            {
-                test: /\.js$/,
-                enforce: "pre",
-                use: ['source-map-loader'],
             }
         ]
     },
@@ -63,7 +58,7 @@ module.exports = {
             short_name: "Foodies",
             description: "An app that allows you to view upcoming food events.",
             // specifies homepage for pwa relative to location of manifest file
-            start_url: "../index.html",
+            // start_url: "../index.html",
             background_color: "#01579b",
             theme_color: "#ffffff",
             // the following two specifications are specific to the webpack manifest plugin
@@ -76,7 +71,6 @@ module.exports = {
             }]
         })
     ],
-    devtool: 'eval-cheap-source-map',
     mode: 'development'
 };
 
