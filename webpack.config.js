@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
-
 module.exports = {
     // assigns entrypoints; root of bundle and beginning of dependency graph (default is ./src/index.js)
     entry: {
@@ -28,7 +27,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name (file) {
-                                return '[path][name].[ext]'
+                                return "[path][name].[ext]"
                             },
                             publicPath: function(url) {
                                 return url.replace('../', '/assets/')
@@ -58,16 +57,17 @@ module.exports = {
             short_name: "Foodies",
             description: "An app that allows you to view upcoming food events.",
             // specifies homepage for pwa relative to location of manifest file
-            // start_url: "../index.html",
+            start_url: "../index.html",
             background_color: "#01579b",
             theme_color: "#ffffff",
             // the following two specifications are specific to the webpack manifest plugin
             fingerprints: false,
             inject: false,
+            publicPath: '/',
             icons: [{
                 src: path.resolve("assets/img/icons/icon-512x512.png"),
                 sizes: [96, 128, 192, 256, 384, 512],
-                destination: path.join("assets", "icons")
+                destination: path.join("assets", "icons")   
             }]
         })
     ],
