@@ -60,8 +60,10 @@ module.exports = {
             start_url: "../index.html",
             background_color: "#01579b",
             theme_color: "#ffffff",
-            // the following two specifications are specific to the webpack manifest plugin
+            // the following two specifications are specific to the webpack manifest plugin:
+            // 'fingerprints' generates unique id of sorts each time a manifest is generated(not needed)
             fingerprints: false,
+            // 'inject' determines whether link to manifest.json is added to the html; since we are not using fingerprints, we will not use this, either.
             inject: false,
             publicPath: '/',
             icons: [{

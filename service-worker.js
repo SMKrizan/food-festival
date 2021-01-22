@@ -55,7 +55,7 @@ self.addEventListener('activate', function (e) {
                 return key.indexOf(APP_PREFIX);
             });
             cacheKeeplist.push(CACHE_NAME);
-
+            // returns a promise that resolves once all old versions of the cache have been deleted
             return Promise.all(
                 keyList.map(function(key, i) {
                     if (cacheKeeplist.indexOf(key) === -1) {
