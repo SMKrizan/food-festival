@@ -13,7 +13,8 @@ const FILES_TO_CACHE = [
     './dist/app.bundle.js',
     './dist/events.bundle.js',
     './dist/tickets.bundle.js',
-    './dist/schedule.bundle.js'
+    './dist/schedule.bundle.js',
+    './dist/manifest.json'
 ];
 
 // listen for fetch event, log URL of requested resource and define how to respond to request
