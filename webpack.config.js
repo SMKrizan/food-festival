@@ -21,7 +21,7 @@ module.exports = {
         // this object will id the type of files to pre-process using 'test' property, for example, this rule could be expanded to search for other types of image files, in addition to .jpg
         rules: [
             {
-                test: /\.(jpg)$/i,
+                test: /\.(jpg|png)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -30,6 +30,7 @@ module.exports = {
                                 return "[path][name].[ext]"
                             },
                             publicPath: function(url) {
+                                // return url;
                                 return url.replace('../', 'assets/')
                             },
                             esModule: false
