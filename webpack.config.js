@@ -30,7 +30,6 @@ module.exports = {
                                 return "[path][name].[ext]"
                             },
                             publicPath: function(url) {
-                                // return url;
                                 return url.replace('../', 'assets/')
                             },
                             esModule: false
@@ -67,7 +66,7 @@ module.exports = {
             fingerprints: false,
             // 'inject' determines whether link to manifest.json is added to the html; since we are not using fingerprints, we will not use this, either.
             inject: false,
-            publicPath: '/',
+            publicPath: './',
             icons: [{
                 src: path.resolve("assets/img/icons/icon-512x512.png"),
                 sizes: [96, 128, 192, 256, 384, 512],
