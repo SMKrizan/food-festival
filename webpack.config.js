@@ -31,8 +31,8 @@ module.exports = {
                             },
                             publicPath: function(url) {
                                 return url.replace('../', '/assets/')
-                            },
-                            esModule: false
+                            }
+                            // esModule: false
                         }
                     },
                     {
